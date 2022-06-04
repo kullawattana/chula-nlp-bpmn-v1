@@ -3,6 +3,8 @@
 ## Install python 3.9.1
 Ref : https://www.python.org/downloads/release/python-391/
 Install for M1 and active : macOS 64-bit universal2 installer
+Ref : https://www.python.org/downloads/release/python-370/
+Recommend for NeuralCoref
 
 ## install environtment for setup library
 $ python3 -m venv env
@@ -28,6 +30,7 @@ pip freeze > requirements.txt
 ## install spacy to env
 - $ pip install -U pip setuptools wheel
 - $ pip install -U spacy
+- $ pip install spacy==2.1.0 (Recommend for NeuralCoref)
 - $ python -m spacy download en_core_web_sm
 - python -m spacy download en
 - $ pip install spacytextblob
