@@ -1,0 +1,63 @@
+เหลืออีก 8 เรื่อง
+
+First, the Manager checks the open leads.
+V = checks
+    V(left) => nsubj => the Manager
+    V(left) => advmod => First
+    V(right) => dobj => the open leads
+
+===================================================================================
+Afterwards, he selects the top five ones.
+V = selects
+    V(left) => nsubj => he
+    V(left) => advmod => Afterwards
+    V(right) => dobj => the top five ones
+
+===================================================================================
+He then tells his Sales Assistant to call the contact person of the leads.
+V = tells
+    V(left) => advmod => then
+    V(left) => nsubj => He
+    V(right) => dobj => his Sales Assistant
+    V(right) => xcomp => call
+V = call
+    V(left) => aux => to
+    V(right) => dobj => the contact person
+        #of
+        if have prep => find pcomp => the leads
+
+===================================================================================
+The Sales Assistant calls each customer.
+V = calls
+    V(left) => nsubj => The Sales Assistant
+    V(right) => dobj => each customer
+
+===================================================================================
+If someone is interested, he sends a note to the Manager.
+AUX => is
+    AUX(left) => nsubj => someone
+    AUX(left) => mark => If
+    AUX(right) => acomp => interested
+V => sends
+    V(left) => nsubj => he
+    V(left) => advcl => is
+    V(right) => dobj => a note
+    V(right) => dative
+        #to
+        if have dative => find pobj => the Manager
+
+===================================================================================
+The Manager then processes the lead.
+V = processes
+    V(left) => advmod => then
+    V(left) => nsubj => The Manager
+    V(right) => dobj => the lead
+
+===================================================================================
+Otherwise, he calls the next customer.
+V = calls
+    V(left) => nsubj => he
+    V(left) => advmod => Otherwise
+    V(right) => oprd => customer (Noun)
+N => customer
+    N(left) => amod = next

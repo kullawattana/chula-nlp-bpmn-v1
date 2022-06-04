@@ -1,0 +1,64 @@
+After a claim is registered, it is examined by a claims officer.
+V = registered
+    V(left) => nsubjpass => a claim
+    V(left) => mark => After
+V = examined
+    V(left) => nsubjpass => it
+    V(left) => advcl => registered
+    V(right) => agent
+        if have agent => find pobj => a claims officer (ACTOR)
+
+===================================================================================
+The claims officer then writes a ”settlement recommendation”.
+V = writes
+    V(left) => nsubj => The claims officer
+    V(left) => advmod => then
+    V(right) => dobj => a "settlement recommendation"
+
+===================================================================================
+This recommendation is then checked by a senior claims officer who may mark the claim as ”OK” or ”Not OK”.
+V = checked
+    V(left) => advmod => then
+    V(left) => auxpass => is
+    V(left) => nsubjpass => This recommendation
+    V(right) => agent
+        if have agent => find pobj => a senior claims officer (ACTOR)
+V = mark
+    V(left) => nsubj => who
+    V(right) => dobj => the claim
+        if have prep => find pobj => OK or not OK (ACTOR)
+    - N(right) => cc, conj
+    - cc (CCONJ) = "or"
+        #prepare split ACTIVITY (BPMN)
+        if token.i+1 = "VERB" then split (OK,Not OK)
+
+===================================================================================
+If the claim is marked as ”Not OK”, it is sent back to the claims officer and the recommendation is repeated.
+V = marked
+    V(left) => nsubjpass => the claim
+    V(left) => mark => If
+    V(right) => prep
+        if have prep => find pobj => as Not OK
+V = sent
+    V(left) => nsubjpass => it
+    V(left) => advcl => marked
+    V(right) => advmod => back
+         if have prep => find pobj => the claims officer
+    - V(right) => cc, conj
+    - cc (CCONJ) = "and"
+        #prepare parallel ACTIVITY (BPMN)
+        if token.i+1 = "VERB" then parallel (V(sent),V(repeated))
+    V(right) => conj => repeated
+V = repeated
+    V(left) => nsubjpass => the recommendation
+
+===================================================================================
+If the claim is OK, the claim handling process proceeds.
+AUX = is
+    AUX(left) => nsubj => the claim
+    AUX(left) => mark => If
+    AUX(right) => acomp => OK
+N = the claim => appos => the claim
+V = handling
+    V(left) => ""
+    V(right) => dobj => process proceeds

@@ -1,0 +1,5 @@
+The travel agent creates a customized program for him and this program is reviewed by the customer.
+If he has any comments or modifications, the program is modified and reviewed by him again.
+If not, the travel agent will prepare all the required details and book the trip (book trains/ flights/ buses, hotels and so on).
+If an error occurred in booking the trip due to cancellation of the trip by the travel office for any external circumstances (for example security reasons), the customer is informed with the cancellation and the process instance ends.
+If during the booking task if any additional details or fees required from the customer (ticket price changed, additional information for reservation should be presented and so on), the customer is informed with the required information and the booking task continues then all the reservation details are sent to the customer before ending the process. s

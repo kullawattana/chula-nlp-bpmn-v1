@@ -1,0 +1,9 @@
+The Office Supply Request Process starts when an employee of the organization submits an office supply request.
+Once the requirement is registered, the request is received by the immediate supervisor.
+the supervisor must approve, request changes or reject the request.
+If the request is rejected the Process will end.
+If the request requires changes it is returned to the employee (requester) who can review the comments and change it.
+If the request is approved, it will go to the Purchase Department in charge of quoting and selecting a vendor.
+If the vendor is not valid in the system, the Purchase Department will have to choose a different vendor.
+After a vendor is selected and confirmed, the system will wait for the products to be delivered and the invoice received.
+The system will then send a notification to the employee informing the outcome.

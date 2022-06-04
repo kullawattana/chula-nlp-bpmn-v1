@@ -1,0 +1,91 @@
+The process starts when a customer submits a claim by sending in relevant documentation.
+V = starts
+    V(left) => nsubj => The process
+    V(right) => advcl => submits
+V = submits
+    V(left) => nsubj => a customer
+    V(left) => advmod => when
+    V(right) => dobj => a claim
+    V(right) =>
+        if have prep => find pcomp => sending
+V = sending
+    V(right) => prt => in
+    V(right) => dobj => relevant documentation
+
+===================================================================================
+The Notification department at the car insurer checks the documents upon completeness and registers the claim.
+V = checks
+    V(left) => nsubj => The Notification department
+        if have prep => find pobj => the car insurer
+    V(right) => dobj => the documents
+    V(right) => prep => upon
+        if have prep => find pobj => completeness
+    - V(right) => cc, conj
+    - cc (CCONJ) = "and"
+V = registers
+    V(right) => dobj => the claim
+
+===================================================================================
+Then, the Handling department picks up the claim and checks the insurance.
+V = picks
+    V(left) => nsubj => the Handling department
+    V(left) => advmod => Then
+    V(right) => prt => up
+    V(right) => dobj => the claim
+    - V(right) => cc, conj
+    - cc (CCONJ) = "and"
+V = checks
+    V(right) => dobj => the insurance
+===================================================================================
+
+Then, an assessment is performed.
+V = performed
+    V(left) => nsubjpass => an assessment
+    V(left) => advmod => Then
+===================================================================================
+
+If the assessment is positive, a garage is phoned to authorise the repairs and the payment is scheduled (in this order).
+AUX = is
+    AUX(left) => nsubj => the assessment
+    AUX(left) => mark = If
+    AUX(right) => acomp => positive
+V = phoned
+    V(left) => nsubjpass => a garage
+    V(left) => advcl => is
+    V(right) => advcl => authorise
+V = authorise
+    V(left) => aux => to
+    V(right) => dobj => the repairs
+    - V(right) => cc, conj
+    - cc (CCONJ) = "and"
+    V(right) => scheduled
+V = scheduled
+    V(left) => nsubjpass => the payment
+    V(right) => prep =>
+        if have prep => find pobj => in this order
+
+===================================================================================
+Otherwise, the claim is rejected.
+V = rejected
+    V(left) => nsubjpass => the claim
+    V(left) => advmod => Otherwise
+
+===================================================================================
+In any case (whether the outcome is positive or negative), a letter is sent to the customer and the process is considered to be complete.
+AUX = is
+    AUX(left) => nsubj => the outcome
+    AUX(left) => mark => whether
+    AUX(right) => acomp => positive or negative
+V = sent
+    V(left) => nsubjpass => a letter
+    V(right) => if dative
+        if have dative => find pobj => the customer
+    - V(right) => cc, conj
+    - cc (CCONJ) = "and"
+    V(right) => conj => considered
+V = considered
+    V(left) => nsubjpass => the process
+    V(right) => xcomp => be
+AUX = be
+    AUX(left) => to
+    AUX(right) => acomp => complete

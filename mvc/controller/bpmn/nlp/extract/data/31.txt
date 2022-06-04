@@ -1,0 +1,3 @@
+From Scenario 5: by assuming that a purchase order is only confirmed if the product is in stock, otherwise the process completes by rejecting the order.
+Further, if the order is confirmed, the shipment address is received and the requested product is shipped while the invoice is emitted and the payment is received.
+Afterwards, the order is archived and the process completes.

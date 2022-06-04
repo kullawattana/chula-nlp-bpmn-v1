@@ -1,0 +1,92 @@
+When a claim is received, it is first checked whether the claimant is insured by the organization.
+
+V = received
+    V(left) => nsubjpass => a claim
+    V(left) => advmod => When
+V = checked
+    V(left) => advmod => first
+    V(left) => auxpass => is
+    V(left) => nsubjpass = > it
+    V(left) => advcl => received
+    V(right) => advcl => insured
+V = insured
+    V(left) => nsubjpass => the claimant
+    V(left) => mark => whether
+    V(right) =>
+        if have prep => find pobj => the organization
+===================================================================================
+
+If not, the claimant is informed that the claim must be rejected.
+V = informed
+    V(left) => nsubjpass => the claimant
+    V(left) => advcl => not
+    V(right) => ccomp => rejected
+V = must
+V = rejected
+    V(left) => aux => must
+    V(left) => nsubjpass => the claim
+    V(left) => mark => that
+===================================================================================
+
+Otherwise, the severity of the claim is evaluated.
+V = evaluated
+    V(left) => auxpass => is
+    V(left) => nsubjpass => the severity
+         if have prep => find pobj => the claim
+    V(left) => advmod => Otherwise
+
+===================================================================================
+Based on the outcome (simple or complex claims), relevant forms are sent to the claimant.
+V = Based
+    V(left) => ""
+    V(right) =>
+        if have prep => find pobj => the outcome (simple or complex claim)
+V = sent
+    V(left) => nsubjpass => relevant forms
+    V(left) => prep => Based
+        if have prep => find pobj => the claimant
+
+===================================================================================
+Once the forms are returned, they are checked for completeness.
+V = returned
+    V(left) => nsubjpass => the forms
+    V(left) => mark => Once
+V = checked
+    V(left) => nsubjpass => they
+    V(left) => advcl => returned
+        if have prep => find pobj => completeness
+
+===================================================================================
+If the forms provide all relevant details, the claim is registered in the Claims Management system,
+which ends the Claims Notification process.
+V = provide
+    V(left) => nsubj => the forms
+    V(left) => mark => If
+    V(right) => dobj => all relevant details
+V = registered
+    V(left) => nsubjpass => the claim
+    V(left) => advcl => provide
+    V(right) =>
+        if have prep => find pobj => the Claims Management system
+V = ends
+    V(left) => nsubj => which
+    V(right) => dobj => the Claims Notification process
+
+===================================================================================
+Otherwise, the claimant is informed to update the forms.
+V = informed
+    V(left) => nsubjpass => the claimant
+    V(left) => advmod => Otherwise
+    V(right) => xcomp => update
+V = update
+    V(left) => aux => to
+    V(right) => dobj => the forms
+
+===================================================================================
+Upon reception of the updated forms, they are checked again.
+V = checked
+    V(left) => nsubjpass => they
+    V(left) => prep => Upon
+        if have prep => find pobj => reception
+        if have prep => find pobj => the updated forms
+    V(right) => advmod => again

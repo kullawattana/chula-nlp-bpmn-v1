@@ -1,0 +1,74 @@
+The Police Report related to the car accident is searched within
+the Police Report database and put in a file together with the Claim Documentation.
+V = searched
+    V(left) => nsubjpass => The Police Report
+        if have prep => find pobj => the car accident
+    V(right) => prep => within
+        if have prep => find pobj => the Police Report database
+    - V(right) => cc, conj
+    - cc (CCONJ) = "and"
+        #prepare parallel ACTIVITY (BPMN)
+        if token.i+1 = "VERB" then parallel (V(searched),V(put))
+    V(right) => conj => put
+    V(right) => prt => in
+    V(right) => dobj => a file
+
+    if NOUN(right) has prep
+    ADP = with
+        ADP(left) => advmod => together
+        ADP(right) => pobj => the Claim Documentation
+
+===================================================================================
+This file serves as input to a claims handler who calculates an initial claim estimate.
+V = serves
+    V(left) => nsubj => This file
+    V(right) =>
+        if have prep => find pobj => as input
+        if have prep => find pobj => a claims handler
+    N(right) => relcl => calculates
+V = calculates
+    V(left) => nsubj => who
+    V(right) => dobj => an initial claim estimate
+
+===================================================================================
+Then, the claims handler creates an Action Plan based on an Action Plan Checklist available in the Document Management system.
+V = creates
+    V(left) => nsubj => the claims handler
+    V(left) => advmod => Then
+    V(right) => dobj => an Action Plan
+V = based
+    V(right) => prep => on
+        if have prep => find pobj => an Action Plan Checklist
+    PROPN => amod
+        if have prep => find pobj => the Document Management system
+
+===================================================================================
+Based on the Action Plan, a claims manager tries to negotiate a settlement on the claim estimate.
+V = Based
+    V(left) => ""
+    V(right) =>
+        if have prep => find pobj => the Action Plan
+V = tries
+    V(left) => nsubj => a claims manager
+    V(left) => prep => Based
+    V(right) => xcomp => negotiate
+V = negotiate
+    V(left) => aux => to
+    V(right) => dobj => a settlement
+    - V(right) => cc, conj
+        - cc (CCONJ) = "on"
+        if have prep => find pobj => the claim estimate
+
+===================================================================================
+The claimant is informed of the outcome, which ends the process.
+V = informed
+    V(left) => nsubjpass => The claimant
+    - V(right) => cc, conj
+        - cc (CCONJ) = "of"
+        if have prep => find pobj => the outcome
+V = ends
+    V(left) => nsubj => which
+    V(right) => dobj => the process
+N = the outcome
+    N(right) => relcl => ends
+

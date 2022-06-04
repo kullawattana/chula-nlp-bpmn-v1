@@ -1,0 +1,75 @@
+Each morning, the files which have yet to be processed need to be checked,
+to make sure they are in order for the court hearing that day.
+V = processed
+    V(left) => aux => to
+    V(left) => auxpass => be
+    V(right) => ""
+V = need
+    V(left) => ""
+    V(right) => xcomp => checked
+    V(right) => acl => make
+V = checked
+    V(left) => aux => to
+    V(left) => auxpass => be
+V = make
+    V(left) => aux => to
+    V(right) => ccomp => sure
+AUX = are
+    AUX(left) => nsubj => they
+    AUX(right) => prep
+        if have prep => find pobj => order
+        if have prep => find pobj => the court hearing
+N = the court hearing
+    N(left) => ""
+    N(right) => npadvmod => day
+===================================================================================
+
+If some files are missing, a search is initiated,
+otherwise the files can be physically tracked to the intended location.
+V = missing
+    V(left) => nsubj => some files
+    V(left) => mark => If
+    V(right) => ""
+V = initiated
+    V(left) => nsubjpass => a search
+    V(left) => advcl => missing
+V = can
+V = tracked
+    V(left) => advmod => physically
+    V(left) => auxpass => be
+    V(left) => aux => can
+    V(left) => nsubjpass => the files
+    V(left) => advmod => otherwise
+    V(right) =>
+        if have prep => find pobj => the intended location
+===================================================================================
+
+Once all the files are ready, these are handed to the Associate,
+and meantime the Judges Lawlist is distributed to the relevant people.
+
+AUX = are
+    AUX(left) => nsubj => all the files
+    AUX(left) => mark => Once
+    AUX(right) => acomp => ready
+V = handed
+    V(left) => auxpass => are
+    V(left) => nsubjpass => these
+    V(left) => advcl => are
+    V(right) => prep => to
+    V(right) => punct => the Associate
+    - V(right) => cc, conj
+    - cc (CCONJ) = "and"
+        #prepare parallel ACTIVITY (BPMN)
+        if token.i+1 = "VERB" then parallel (V(handed),V(distributed))
+    - conj => distributed
+V = distributed
+    V(left) => nsubjpass => the Judges Lawlist
+    V(left) => advmod => meantime
+    V(right) =>
+        if have prep => find pobj => the relevant people
+
+===================================================================================
+Afterwards, the directions hearings are conducted.
+V = conducted
+    V(left) => nsubjpass => the directions hearings
+    V(left) => advmod => Afterwards

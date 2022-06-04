@@ -1,0 +1,4 @@
+This process starts whenever a purchase order has been received from a customer.
+The first activity that is carried out is confirming the order.
+Next, the shipment address is received so that the product can be shipped to the customer.
+Afterwards, the invoice is emitted and once the payment is received the order is archived, thus completing the process.

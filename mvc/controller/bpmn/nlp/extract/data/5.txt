@@ -1,0 +1,88 @@
+The party sends a warrant possession request asking a warrant to be released.
+V = sends
+    check is active
+    V(left) => nsubj => The party
+    V(right) => dobj => a warrant possession request
+V = asking
+    check is active
+    V(left) = ""
+    V(right) => dobj => a warrant
+V = released
+    check is passive    (ให้ดูต่อว่า อ้างถึงบุคคล กิจกรรม หรือเหตุการณ์)
+    V(left) => relcl => a warrant
+    V(left) => aux => to
+
+===================================================================================
+The Client Service Back Office as part of the Small Claims Registry Operations receives the request and retrieves the SCT file.
+V = receives
+    V(left) => nsubj =>
+        if nsubj have prep => find pobj => part
+        if nsubj have prep => find pobj => the Small Claims Registry Operations
+    V(right) => dobj => the request
+    - V(right) => cc, conj
+        - cc (CCONJ) = "and"
+        #prepare parallel ACTIVITY (BPMN)
+        if token.i+1 = "VERB" then parallel (V(receives),V(retrieves))
+    - conj => retrieves
+V = retrieves
+    V(left) => ""
+    V(right) => dobj => the SCT files
+===================================================================================
+
+Then, the SCT Warrant Possession is forwarded to Queensland Police.
+V => forwarded
+    V(left) => nsubjpass => the SCT Warrant Possession
+    V(left) => advmod => Then
+    V(right)
+        if have prep => find pobj => Queensland Police
+===================================================================================
+
+The SCT physical file is stored by the Back Office awaiting a report to be sent by the Police.
+xcomp = stored, awaiting
+V = stored
+    V(left) => nsubjpass The SCT physical file
+    V(right) => agent =>
+        #by
+        if have agent => find pobj => the Back Office
+V = awaiting
+    V(left) => ""
+    V(right) => dobj => a report
+N = a report => relcl => V
+V = sent
+    V(left) => aux => to
+    V(left) => auxpass => be
+    V(right) => agent =>
+        #by
+        if have agent => find pobj => the Police
+
+===================================================================================
+When the report is received, the respective SCT file is retrieved.
+V = received
+    V(left) => nsubjpass => the report
+    V(left) => advmod => When
+    V(right) => ""
+V = retrieved
+    V(left) => nsubjpass => the respective SCT file
+    V(left) => advcl => received
+
+===================================================================================
+Then, Back Office attaches the new SCT document, and stores the expanded SCT physical file.
+V = attaches
+    V(left) => nsubj => Back Office
+    V(left) => advmod => Then
+    V(right) => dobj => the new SCT document
+    - V(right) => cc, conj
+        - cc (CCONJ) = "and"
+        #prepare parallel ACTIVITY (BPMN)
+        if token.i+1 = "NOUN" then parallel => stores
+        token.i+2 => dobj => the expanded SCT physical file
+
+===================================================================================
+After that, some other MC internal staff receives the physical SCT file (out of scope).
+V = receives
+    V(left) => prep => After
+        if have prep => find pobj => that
+    V(left) => nsubj => some other MC internal staff
+    V(right) => dobj => the physical SCT File
+    V(right) => prep
+        if have prep => find pobj => out of scope
