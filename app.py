@@ -57,7 +57,7 @@ def upload_file():
 @app.route('/download', methods=['POST', 'GET'])
 def download_file():
     if request.method == 'POST':
-        if request.form['Download Result File'] == 'Download Result File':
+        if request.form['Download Result File'] == 'Download BPMN File':
             return send_from_directory(app.config['UPLOAD_FOLDER'], 'result_bpmn_process_from_nlp.bpmn')
     return render_template('download.html')  
 

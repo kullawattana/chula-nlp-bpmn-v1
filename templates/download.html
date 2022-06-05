@@ -21,14 +21,15 @@
 <body>
     <div class="container">
         <section class="vh-100 gradient-custom">
-            <div class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-dark">
-                <div class="text-white mb-3 mb-md-0">
-                    <img src="{{url_for('static', filename='img/chula_icon.png')}}" style="width:100px;height:100px;">
-                    Automated Generation of BPMN :: Powered by Faculty of Engineering, Chulalongkorn University
+            <div class="text-center justify-content-between py-4 px-4 px-xl-5 bg-dark">
+                <div class="text-white mb-2 mb-md-0">
+                    <p><img src="{{url_for('static', filename='img/chula_icon.png')}}" style="width:100px;height:100px;"></p>
+                    <p>An Automated Generation of BPMN Models</p>
+                    <p>from User Requirements in Natural Language</p>
                 </div>
             </div>
             <div class="container-fluid h-custom py-4">
-                <div class="container h-100">
+                <div class="h-100">
                     <div class="row d-flex justify-content-center align-items-center h-100">
                         <div class="col-12 col-md-9 col-lg-7 col-xl-6">
                             <div class="card" style="border-radius: 15px;">
@@ -40,27 +41,31 @@
                                     <form method=post>
                                         <div style="text-align:center;">
                                             <div class="form-outline mb-4">
-                                                <input type="submit" name="Download Result File" value="Download Result File">
+                                                <input type="submit" name="Download Result File" value="Download BPMN File">
                                             </div>
                                         </div>
                                     </form>
                                     <form action="{{url_for('show_xml')}}">
                                         <div style="text-align:center;">
                                             <div class="form-outline mb-4">
+                                                <img src="{{url_for('static', filename='img/show_xml_icon.webp')}}" style="width:40px;height:40px;">
                                                 <button type=submit class="btn btn-primary">Show XML</button>
-                                                <!-- <input type="submit" name="Show XML" value="Show XML" method=post> -->
                                             </div>
                                         </div>
                                     </form>
+                                    <div style="text-align:center;">
+                                        <a href="{{url_for('upload_file')}}">Back to Upload File</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-dark">
+            <div class="d-flex flex-column flex-md-row justify-content-between py-4 px-4 px-xl-5 bg-dark">
                 <div class="text-white mb-3 mb-md-0">
-                    Copyright © 2022. All rights reserved.
+                  <p>Powered by Faculty of Engineering, Chulalongkorn University</p>
+                  <p>Copyright © 2022. All rights reserved.</p>
                 </div>
             </div>
         </section>
