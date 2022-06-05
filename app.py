@@ -1,47 +1,71 @@
-from flask import Flask, render_template, flash, redirect, url_for
-from werkzeug.utils import secure_filename
-from flask_wtf.csrf import CSRFProtect
-from flask_wtf import FlaskForm
-from wtforms import StringField
-from flask_wtf.file import FileField, FileRequired, FileAllowed
-from wtforms.validators import DataRequired
-from main import bpmn_process
-
 import os
-SECRET_KEY = os.urandom(32)
+from flask import Flask, request, render_template, flash, redirect, url_for, send_from_directory
+from werkzeug.utils import secure_filename
+from main_generate_bpmn_xml import BPMN
+from neural_coref import NeuralCoref
 
-csrf = CSRFProtect()
+ALLOWED_EXTENSIONS = {'txt'}
+
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '325245hkhf486axcv5719bf9397cbn69xv'
+app.secret_key = os.urandom(24)
+app.config['UPLOAD_FOLDER'] = 'data'
 app.config['MAX_CONTENT_LENGTH'] = 4 * 1024 * 1024  # 4MB max-limit.
-csrf.init_app(app)
 
-class DocumentUploadForm(FlaskForm):
-    document = FileField('Document', validators=[FileRequired(), FileAllowed(['txt'], 'Text File only!')])
+# check input file's file extension
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.',1)[1].lower() in ALLOWED_EXTENSIONS
 
-@app.route('/', methods = ['GET', 'POST'])
-def index():
-    form = DocumentUploadForm()
-    if form.validate_on_submit():
+# home page
+@app.route('/', methods=['POST', 'GET'])
+def upload_file():
+    if request.method == 'POST':
+        # check if the post request has the file part
+        if 'file' not in request.files:
+            flash('No file part')
+            return redirect(request.url)
 
-        assets_dir = os.path.join(
-            os.path.dirname(app.instance_path), 'assets'
-        )
+        file = request.files['file']
 
-        d = form.document.data
-        docname = secure_filename(d.filename)
+        read_text = []
+        for text in request.files.get('file'):
+            read_text.append(str(text))
 
-        # Document save
-        d.save( os.path.join(assets_dir, docname))
-        flash('Document uploaded successfully.')
+        # run the test function
+        neuralCoref = NeuralCoref(read_text[0])
+        text = neuralCoref.get_sentence()
 
-        # Got data from file
+        process_name = "BPMN Process"
         is_show_lane = True
-        bpmn_process("", is_show_lane)
+        is_show_gateway = False
+        bpmn = BPMN(text, process_name)
+        bpmn.bpmn_process(is_show_lane, is_show_gateway)
 
-        return redirect(url_for('index'))
+        # if the user does not select a file, browser submits an empty file without a filename.
+        if file.filename == '':
+            flash('No selected file')
+            return redirect(request.url)
 
-    return render_template('index.html', form=form)
-    
+        # if the user submits a file with the correct format
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            return redirect(url_for('download_file'))
+
+    return render_template('index.html')
+
+# download page
+@app.route('/download', methods=['POST', 'GET'])
+def download_file():
+    if request.method == 'POST':
+        if request.form['Download Result File'] == 'Download Result File':
+            return send_from_directory(app.config['UPLOAD_FOLDER'], 'result_bpmn_process_from_nlp.bpmn')
+    return render_template('download.html')  
+
+# show xml
+@app.route('/showxml', methods=['POST', 'GET'])
+def show_xml():
+    if request.method == 'GET':
+        return send_from_directory(app.config['UPLOAD_FOLDER'], 'result_bpmn_process_from_nlp.xml')
+
 if __name__ == '__main__':
     app.run(debug=True)

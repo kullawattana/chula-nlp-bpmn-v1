@@ -1,4 +1,10 @@
+# Paper
+Refactor Project : https://github.com/kullawattana/refactor_thesis_v1_2022
+Chula Thesis : http://cuir.car.chula.ac.th/simple-search?query=BPMN
+Conference : https://acisinternational.org/conferences/csii-2022/
+
 # Install
+Git Authentication : https://stackoverflow.com/questions/68775869/support-for-password-authentication-was-removed-please-use-a-personal-access-to
 
 ## Install python 3.9.1
 Ref : https://www.python.org/downloads/release/python-391/
@@ -32,8 +38,29 @@ pip freeze > requirements.txt
 - $ pip install -U spacy
 - $ pip install spacy==2.1.0 (Recommend for NeuralCoref)
 - $ python -m spacy download en_core_web_sm
+- $ python -m spacy download en_core_web_sm-2.2.0
 - python -m spacy download en
 - $ pip install spacytextblob
+
+# Check Info package
+- $ python -m spacy info
+
+# Install NeuralCoref package (support spacy 2.1.0, python 3.7)
+- $ pip install neuralcoref
+Ref : https://morioh.com/p/19b916530cb8
+
+# Install NeuralCoref from Source (support spacy 2.1.0, python 3.7)
+- $ python3 -m venv env
+- $ source env/bin/activate
+- $ git clone https://github.com/huggingface/neuralcoref.git
+- $ cd neuralcoref
+- $ pip install -r requirements.txt
+- $ pip install -e .
+Ref : https://stackoverflow.com/questions/61269954/attribute-error-using-neuralcoref-in-colab
+
+# Uninstall NeuralCoref
+- $ pip uninstall neuralcoref
+- $ pip install neuralcoref --no-binary neuralcoref
 
 # Create Procfile on VS Code and add to file
 web: gunicorn app:app

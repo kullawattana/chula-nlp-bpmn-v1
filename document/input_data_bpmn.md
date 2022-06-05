@@ -1,3 +1,49 @@
+## Pattern
+role = { 
+        "{number_of_role}|{subject}|Lane_{id}":[
+            "{event}_{id}",
+            "{event}_{id}",
+            "{event}_{id}"
+        ],
+        "{number_of_role}|{subject}|Lane_{id}":[
+            "{event}_{id}",
+            "{event}_{id}",
+            "{event}_{id}"
+        ]
+        .
+        .
+        .
+    }
+
+lane = {
+        "Lane_{id}":[
+            "{event}_{id}",
+            "{event}_{id}",
+            "{event}_{id}"
+        ],
+        "Lane_{id}":[
+            "{event}_{id}",
+            "{event}_{id}",
+            "{event}_{id}"
+        ]
+        .
+        .
+        .
+    }
+
+list_svo_to_generate_bpmn_in_out_diagram = [
+        "{event}_{id}_{label}_{direction}|",
+        "{event}_{id}_{label}_{direction}|",
+
+        "{event}_{id}_{label}_{direction}|",
+        "{event}_{id}_{label}_{direction}|",
+
+        .
+        .
+        .
+    ]
+
+=============================================
 ## Case 1
 
 - Sequence
