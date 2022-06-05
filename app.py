@@ -19,6 +19,9 @@ def allowed_file(filename):
 @app.route('/', methods=['POST', 'GET'])
 def upload_file():
     if request.method == 'POST':
+        os.remove(os.path.join(app.config['UPLOAD_FOLDER'], "result_bpmn_process_from_nlp.bpmn"))
+        os.remove(os.path.join(app.config['UPLOAD_FOLDER'], "result_bpmn_process_from_nlp.xml"))
+
         # check if the post request has the file part
         if 'file' not in request.files:
             flash('No file part')
@@ -28,7 +31,7 @@ def upload_file():
 
         read_text = []
         for text in request.files.get('file'):
-            read_text.append(str(text))
+            read_text.append(str(text).replace("b'",""))
 
         # run the test function
         neuralCoref = NeuralCoref(read_text[0])
@@ -49,6 +52,7 @@ def upload_file():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            os.remove(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             return redirect(url_for('download_file'))
 
     return render_template('index.html')
