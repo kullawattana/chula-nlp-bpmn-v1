@@ -23,6 +23,7 @@
         <section class="vh-100 gradient-custom">
             <div class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-dark">
                 <div class="text-white mb-3 mb-md-0">
+                    <img src="{{url_for('static', filename='img/chula_icon.png')}}" style="width:100px;height:100px;">
                     Automated Generation of BPMN :: Powered by Faculty of Engineering, Chulalongkorn University
                 </div>
             </div>
@@ -32,6 +33,9 @@
                         <div class="col-12 col-md-9 col-lg-7 col-xl-6">
                             <div class="card" style="border-radius: 15px;">
                                 <div class="card-body p-5">
+                                    <div style="text-align:center;">
+                                        <img src="{{url_for('static', filename='img/success_icon.png')}}" style="width:100px;height:100px;">
+                                    </div>
                                     <h2 class="text-uppercase text-center mb-5">Download result file</h2>
                                     <form method=post>
                                         <div style="text-align:center;">
@@ -43,7 +47,8 @@
                                     <form action="{{url_for('show_xml')}}">
                                         <div style="text-align:center;">
                                             <div class="form-outline mb-4">
-                                                <input type="submit" name="Show XML" value="Show XML" method=post>
+                                                <button type=submit class="btn btn-primary">Show XML</button>
+                                                <!-- <input type="submit" name="Show XML" value="Show XML" method=post> -->
                                             </div>
                                         </div>
                                     </form>
