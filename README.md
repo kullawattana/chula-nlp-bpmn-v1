@@ -90,7 +90,7 @@ $ export PATH=/opt/homebrew/bin:$PATH
 ## Commit to git
 - $ git init
 - $ git add .
-- $ heroku git:remote -a chula-nlp-bpmn 
+- $ heroku git:remote -a chula-nlp-bpmn-v1 
 ### set git remote heroku to https://git.heroku.com/chula-nlp-bpmn.git
 ### URL : https://chula-nlp-bpmn.herokuapp.com/
 - $ git commit -am "make it better"
