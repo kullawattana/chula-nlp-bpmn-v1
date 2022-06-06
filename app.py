@@ -1,4 +1,5 @@
 import os
+import json
 from flask import Flask, request, render_template, flash, redirect, url_for, send_from_directory
 from werkzeug.utils import secure_filename
 from main_generate_bpmn_xml import BPMN
@@ -70,7 +71,11 @@ def download_file():
     if request.method == 'POST':
         if request.form['Download Result File'] == 'Download BPMN File':
             return send_from_directory(app.config['UPLOAD_FOLDER'], 'result_bpmn_process_from_nlp.bpmn')
-    return render_template('download.html', flow=flow[0], lane=lane[0], svo=svo[0])  
+    
+    json_flow = json.dumps(flow[0], sort_keys = False, indent = 2)
+    json_lane = json.dumps(lane[0], sort_keys = False, indent = 2)
+    json_svo = json.dumps(svo[0], sort_keys = False, indent = 2)
+    return render_template('download.html', flow=json_flow, lane=json_lane, svo=json_svo)  
 
 # show xml
 @app.route('/showxml', methods=['POST', 'GET'])
