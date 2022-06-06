@@ -209,3 +209,4 @@ class BPMN():
         xml_data = self.indent(header_bpmn)
         tree.write("data/result_bpmn_process_from_nlp.xml", encoding="utf-8", xml_declaration=True)
         tree.write("data/result_bpmn_process_from_nlp.bpmn", encoding="utf-8", xml_declaration=True)
+        return list_flow, json_list_lane, list_svo_to_generate_bpmn_in_out_diagram

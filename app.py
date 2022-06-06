@@ -11,6 +11,10 @@ app.secret_key = os.urandom(24)
 app.config['UPLOAD_FOLDER'] = 'data'
 app.config['MAX_CONTENT_LENGTH'] = 4 * 1024 * 1024  # 4MB max-limit.
 
+flow = []
+lane = []
+svo = []
+
 # check input file's file extension
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.',1)[1].lower() in ALLOWED_EXTENSIONS
@@ -41,7 +45,10 @@ def upload_file():
         is_show_lane = True
         is_show_gateway = False
         bpmn = BPMN(text, process_name)
-        bpmn.bpmn_process(is_show_lane, is_show_gateway)
+        list_flow, json_list_lane, list_svo_to_generate_bpmn_in_out_diagram = bpmn.bpmn_process(is_show_lane, is_show_gateway)
+        flow.append(list_flow)
+        lane.append(json_list_lane)
+        svo.append(list_svo_to_generate_bpmn_in_out_diagram)
 
         # if the user does not select a file, browser submits an empty file without a filename.
         if file.filename == '':
@@ -63,7 +70,7 @@ def download_file():
     if request.method == 'POST':
         if request.form['Download Result File'] == 'Download BPMN File':
             return send_from_directory(app.config['UPLOAD_FOLDER'], 'result_bpmn_process_from_nlp.bpmn')
-    return render_template('download.html')  
+    return render_template('download.html', flow=flow[0], lane=lane[0], svo=svo[0])  
 
 # show xml
 @app.route('/showxml', methods=['POST', 'GET'])
