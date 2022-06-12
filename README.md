@@ -14,33 +14,33 @@ version | detail | reference
 ## Install environtment for setup library
 detail | command 
 --- | --- 
-create environtment | $ python3 -m venv env
-activate environtment | $ source env/bin/activate
+Create Environtment | $ python3 -m venv env
+Activate Environtment | $ source env/bin/activate
 
 # Install flask to env
 detail | command 
 --- | --- 
 Flask | $ pip install Flask
 SQL | $ pip install Flask-SQLAlchemy
-Restful | $ pip install flask-restful
+RestFul | $ pip install flask-restful
 Environtment | $ pip install python-dotenv
 Heroku gunicorn | $ pip install gunicorn
 Flask WTF | $ pip install Flask-WTF
 WTForms | $ pip install WTForms
 pip freeze | $ pip freeze > requirements.txt
-install requirement | $ pip install -r requirements.txt 
-uninstall requirement | $ pip uninstall -r requirements.txt -y
-deactive Environtment | $ deactivate
+Install Requirement | $ pip install -r requirements.txt 
+Uninstall Requirement | $ pip uninstall -r requirements.txt -y
+Deactive Environtment | $ deactivate
 
 # Install spacy to env
 detail | command 
 --- | --- 
-setuptools wheel | $ pip install -U pip setuptools wheel
-spacy | $ pip install -U spacy
-spacy 2.1.0 (Recommend for NeuralCoref) | $ pip install spacy==2.1.0
-spacy information package | $ python -m spacy info
-model | $ python -m spacy download en_core_web_sm
-download en | $ python -m spacy download en
+Setuptools Wheel | $ pip install -U pip setuptools wheel
+Spacy | $ pip install -U spacy
+Spacy 2.1.0 (Recommend for NeuralCoref) | $ pip install spacy==2.1.0
+Spacy information package | $ python -m spacy info
+Model | $ python -m spacy download en_core_web_sm
+Download en | $ python -m spacy download en
 Install NeuralCoref (support spacy 2.1.0, python 3.7) | $ pip install neuralcoref
 Uninstall NeuralCoref | $ pip uninstall neuralcoref
 Uninstall NeuralCoref without binary | $ pip install neuralcoref --no-binary neuralcoref
@@ -70,17 +70,17 @@ Test Homebrew | $ brew
 detail | command
 --- | ---
 Install | $ brew tap heroku/brew && brew install heroku 
-heroku login | $ heroku login
-init | $ git init
-add | $ git add .
-remote | $ heroku git:remote -a chula-nlp-bpmn-v1 
-commit | $ git commit -am "make it better"
-push | $ git push heroku master
-view Log | $ heroku logs --tail
+Heroku Login | $ heroku login
+Init | $ git init
+Add | $ git add .
+Remote | $ heroku git:remote -a chula-nlp-bpmn-v1 
+Commit | $ git commit -am "make it better"
+Push | $ git push heroku master
+View Log | $ heroku logs --tail
 
 topic | URL
 --- | ---
-Set git remote heroku | https://git.heroku.com/chula-nlp-bpmn.git
+Set Git remote heroku | https://git.heroku.com/chula-nlp-bpmn.git
 Heroku URL | https://chula-nlp-bpmn.herokuapp.com/
 
 # Git add
@@ -99,7 +99,7 @@ pylint | $ pip install pylint
 Check python version | $ brew list | grep python
 
 ## Reference Deployment
-topic | Reference
+topic | reference
 --- | ---
 DEPLOYING REST-API BASED FLASK APP ON HEROKU PART 1 | https://medium.com/@ashiqgiga07/deploying-rest-api-based-flask-app-on-heroku-part-1-cb43a14c50c
 DEPLOYING REST-API BASED FLASK APP ON HEROKU PART 2 | https://medium.com/@ashiqgiga07/deploying-rest-api-based-flask-app-on-heroku-part-2-54698cf7c96d
