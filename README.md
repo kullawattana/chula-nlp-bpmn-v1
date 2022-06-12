@@ -1,23 +1,23 @@
-# Paper
+# Papers
 detail | reference
 --- | ---
 Refactor Project | https://github.com/kullawattana/refactor_thesis_v1_2022
 Chula Thesis | http://cuir.car.chula.ac.th/simple-search?query=BPMN
 Conference | https://acisinternational.org/conferences/csii-2022/
 
-## Install
+# Install Python
 version | detail | reference
 --- | --- | ---
 3.9.1 | Install for M1 and active : macOS 64-bit universal2 installer | https://www.python.org/downloads/release/python-391/
 3.7.0 | Recommend for NeuralCoref | https://www.python.org/downloads/release/python-370/
 
-## install environtment for setup library
+## Install environtment for setup library
 detail | command 
 --- | --- 
 create environtment | $ python3 -m venv env
 activate environtment | $ source env/bin/activate
 
-## install flask to env
+# Install flask to env
 detail | command 
 --- | --- 
 Flask | $ pip install Flask
@@ -32,7 +32,7 @@ install requirement | $ pip install -r requirements.txt
 uninstall requirement | $ pip uninstall -r requirements.txt -y
 deactive Environtment | $ deactivate
 
-## install spacy to env
+# Install spacy to env
 detail | command 
 --- | --- 
 setuptools wheel | $ pip install -U pip setuptools wheel
@@ -45,17 +45,17 @@ Install NeuralCoref (support spacy 2.1.0, python 3.7) | $ pip install neuralcore
 Uninstall NeuralCoref | $ pip uninstall neuralcoref
 Uninstall NeuralCoref without binary | $ pip install neuralcoref --no-binary neuralcoref
 
-# Install NeuralCoref from Source (support spacy 2.1.0, python 3.7)
+## Install NeuralCoref from Source (support spacy 2.1.0, python 3.7)
 - $ python3 -m venv env
 - $ source env/bin/activate
 - $ git clone https://github.com/huggingface/neuralcoref.git
 - $ cd neuralcoref
 - $ pip install -r requirements.txt
 - $ pip install -e .
-NeuralCoref Ref : https://morioh.com/p/19b916530cb8
-Colab Ref : https://stackoverflow.com/questions/61269954/attribute-error-using-neuralcoref-in-colab
+- NeuralCoref Ref : https://morioh.com/p/19b916530cb8
+- Colab Ref : https://stackoverflow.com/questions/61269954/attribute-error-using-neuralcoref-in-colab
 
-## Create Procfile on VS Code and add to file
+# Create Procfile on VS Code and add to file
 - web: gunicorn app:app
 
 # Homebrew
@@ -64,12 +64,12 @@ detail | command
 Install Homebrew | $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 Export Path | $ export PATH=/opt/homebrew/bin:$PATH
 Test Homebrew | $ brew
-Install | $ brew tap heroku/brew && brew install heroku 
 
 # Heroku
 ## login and Commit to git
 detail | command
 --- | ---
+Install | $ brew tap heroku/brew && brew install heroku 
 heroku login | $ heroku login
 init | $ git init
 add | $ git add .
@@ -84,6 +84,7 @@ Set git remote heroku | https://git.heroku.com/chula-nlp-bpmn.git
 Heroku URL | https://chula-nlp-bpmn.herokuapp.com/
 
 # Git add
+detail | command terminal
 --- | ---
 Add | $ git add .
 Commit | $ git commit -am "make it better"
