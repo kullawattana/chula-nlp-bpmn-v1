@@ -5,11 +5,11 @@ Refactor Project | https://github.com/kullawattana/refactor_thesis_v1_2022
 Chula Thesis | http://cuir.car.chula.ac.th/simple-search?query=BPMN
 Conference | https://acisinternational.org/conferences/csii-2022/
 
-## Install python 3.9.1
+## Install
 version | detail | reference
 --- | --- | ---
-Python 3.9.1 | Install for M1 and active : macOS 64-bit universal2 installer | https://www.python.org/downloads/release/python-391/
-Python 3.7.0 | Recommend for NeuralCoref | https://www.python.org/downloads/release/python-370/
+3.9.1 | Install for M1 and active : macOS 64-bit universal2 installer | https://www.python.org/downloads/release/python-391/
+3.7.0 | Recommend for NeuralCoref | https://www.python.org/downloads/release/python-370/
 
 ## install environtment for setup library
 detail | command 
@@ -41,7 +41,7 @@ spacy 2.1.0 (Recommend for NeuralCoref) | $ pip install spacy==2.1.0
 spacy information package | $ python -m spacy info
 model | $ python -m spacy download en_core_web_sm
 download en | $ python -m spacy download en
-Install NeuralCoref package (support spacy 2.1.0, python 3.7) | $ pip install neuralcoref
+Install NeuralCoref (support spacy 2.1.0, python 3.7) | $ pip install neuralcoref
 Uninstall NeuralCoref | $ pip uninstall neuralcoref
 Uninstall NeuralCoref without binary | $ pip install neuralcoref --no-binary neuralcoref
 
@@ -59,6 +59,7 @@ Colab Ref : https://stackoverflow.com/questions/61269954/attribute-error-using-n
 - web: gunicorn app:app
 
 # Homebrew
+detail | command
 --- | ---
 Install Homebrew | $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 Export Path | $ export PATH=/opt/homebrew/bin:$PATH
@@ -67,21 +68,22 @@ Install | $ brew tap heroku/brew && brew install heroku
 
 # Heroku
 ## login and Commit to git
-- $ heroku login
-- $ git init
-- $ git add .
-- $ heroku git:remote -a chula-nlp-bpmn-v1 
-- $ git commit -am "make it better"
-- $ git push heroku master
-## View Log after deployment
-- $ heroku logs --tail
+detail | command
+--- | ---
+heroku login | $ heroku login
+init | $ git init
+add | $ git add .
+remote | $ heroku git:remote -a chula-nlp-bpmn-v1 
+commit | $ git commit -am "make it better"
+push | $ git push heroku master
+view Log | $ heroku logs --tail
 
 topic | URL
 --- | ---
 Set git remote heroku | https://git.heroku.com/chula-nlp-bpmn.git
 Heroku URL | https://chula-nlp-bpmn.herokuapp.com/
 
-# Git
+# Git add
 --- | ---
 Add | $ git add .
 Commit | $ git commit -am "make it better"
